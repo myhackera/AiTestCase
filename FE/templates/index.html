@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Case Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Test Case Generator</h1>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="custom">Custom Prompt</button>
+            <button class="tab-btn" data-tab="default">Default Prompt</button>
+        </div>
+        <form id="testCaseForm">
+            <div id="customPrompt" class="form-section">
+                <div class="form-group">
+                    <label for="prompt">Enter Custom Prompt:</label>
+                    <div class="tooltip-container">
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            Enter instructions for test case generation. 
+                            Example: "Write test cases in numbered format..."
+                        </div>
+                    </div>
+                    <textarea 
+                        id="prompt" 
+                        name="prompt" 
+                        rows="5" 
+                        placeholder="Enter your custom prompt here..."></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="user_story">Enter User Story/Requirements:</label>
+                <textarea 
+                    id="user_story" 
+                    name="user_story" 
+                    rows="15" 
+                    required
+                    placeholder="Paste your user story or requirements here..."></textarea>
+            </div>
+            <div class="button-group">
+                <button type="submit" id="submitBtn">Generate Test Cases</button>
+                <button type="button" id="clearBtn">Clear All</button>
+            </div>
+        </form>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <div class="loading-text">Generating test cases...</div>
+        </div>
+        <div id="error" class="hidden"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
